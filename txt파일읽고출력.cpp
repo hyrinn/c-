@@ -1,21 +1,18 @@
 #include<iostream>
 #include<fstream>
+#include<string>
 using namespace std;
 int main(){
-
-    ifstream fin;
-    fin.open("student.txt");
-
-    if(!fin) {cerr << "파일을 열 수가 없어요";  return 0;}
-
     string name, dept;
-    int sid;
+    int grade;
+    ifstream fa("a.txt"); if(!fa) {cerr << "파일 열기 실패\n"; return 0;}
+    fa >> name;
+    fa >> grade;
+    fa >> dept;
 
-    fin >> name;    fin >> sid;     fin >> dept;
+    cout << "이름: " << name << endl;
+    cout << "학번: " << grade << endl;
+    cout << "학과: " << dept << endl;
 
-    cout << name << endl;
-    cout << sid << endl;
-    cout << dept << endl;
-
-    fin.close();
+    fa.close();
 }
